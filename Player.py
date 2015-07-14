@@ -20,3 +20,12 @@ class Player:
 		than the self score.
 		"""
 		return self.score < other.score
+
+	def score():
+		return this.score
+
+	
+
+a = Player()
+b = Player()
+a == b
