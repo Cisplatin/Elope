@@ -28,3 +28,9 @@ class ELO:
 		if not player in self.players:
 			raise Exception("There is no player named %s." % player)
 		del self.players[player]
+
+	def number_of_players(self):
+		"""
+		number_of_players(self) returns the number of players in this scheme.
+		"""
+		return len(self.players)
