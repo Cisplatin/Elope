@@ -36,3 +36,13 @@ class ELO:
 		number_of_players(self) returns the number of players in this scheme.
 		"""
 		return len(self.players)
+
+	def average_score(self):
+		"""
+		average_score(self) returns the average score of all players in the given
+		ELO scheme.
+		"""
+		player_count = self.number_of_players()
+		return sum([self.players[player].get_score() / player_count 
+		            for player in self.players])
+
