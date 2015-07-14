@@ -34,25 +34,28 @@ class Player:
 		"""
 		return self.score <= other.score
 
-	def __ge__(self,other):
+	def __ge__(self, other):
 		"""
 		___ge___(self, other) returns true if the self score is greater 		than or equal to the other score. 
 		"""
+		return self.score >= other.score
 
-	def getScore(self):
+	def get_score(self):
 		"""
-		score(self) returns the score of the player.
+		get_score(self) returns the score of the player.
 		"""
 		return self.score
 
-	def addScore(self, change):
+
+	def set_score(self, new_score):
 		"""
-		changScore(self, change) increases the score of the player by 
-		the value given in change.
+		get_score(self, new_score) sets the players score to new_score.
 		"""
-		self.score += change
+		self.score = new_score
 	
-	
-a = Player()
-b = Player()
-a == b
+	def __iadd__(self, arg):
+		"""
+		__iadd__(self, arg) adds the arg value to the players score.
+		"""
+		self.score += arg
+		return score
