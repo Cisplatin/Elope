@@ -45,7 +45,7 @@ class Player:
 		"""
 		return self.score
 
-	def changeScore(self, change):
+	def addScore(self, change):
 		"""
 		changScore(self, change) increases the score of the player by 
 		the value given in change.
