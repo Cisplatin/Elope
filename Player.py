@@ -30,15 +30,23 @@ class Player:
 
 	def __le__(self, other):
 		"""
-		__le__(self, other) returns true if the self score is less than 		or equal to the other score.
+		__le__(self, other) returns true if the self score is less than 
+		or equal to the other score.
 		"""
 		return self.score <= other.score
 
 	def __ge__(self, other):
 		"""
-		___ge___(self, other) returns true if the self score is greater 		than or equal to the other score. 
+		___ge___(self, other) returns true if the self score is greater 
+		than or equal to the other score. 
 		"""
 		return self.score >= other.score
+
+        def __iadd__(self, arg):
+                """
+                __iadd__(self, arg) adds the arg value to the players score.
+                """
+                return self.score + arg
 
 	def get_score(self):
 		"""
@@ -46,16 +54,8 @@ class Player:
 		"""
 		return self.score
 
-
 	def set_score(self, new_score):
 		"""
 		get_score(self, new_score) sets the players score to new_score.
 		"""
 		self.score = new_score
-	
-	def __iadd__(self, arg):
-		"""
-		__iadd__(self, arg) adds the arg value to the players score.
-		"""
-		self.score += arg
-		return score
