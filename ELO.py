@@ -43,6 +43,8 @@ class ELO:
 		ELO scheme.
 		"""
 		player_count = self.number_of_players()
-		return sum([self.players[player].get_score() / player_count 
-		            for player in self.players])
-
+		if player_count == 0:
+			raise Exception("Cannot find the average score of 0 players.")
+		else:
+			return sum([self.players[player].get_score() 
+			           for player in self.players]) / self.number_of_players()
