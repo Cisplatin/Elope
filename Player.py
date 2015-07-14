@@ -44,9 +44,15 @@ class Player:
 
         def __iadd__(self, arg):
                 """
-                __iadd__(self, arg) adds the arg value to the players score.
+                __iadd__(self, arg) adds the arg value to the player's score.
                 """
                 return self.score + arg
+
+	def __isub__(self, arg):
+		"""
+		__isub__(self, arg) subtracts the arg value from the player's score.
+		"""
+		return self.score - arg
 
 	def get_score(self):
 		"""
