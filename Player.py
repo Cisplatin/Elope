@@ -6,6 +6,9 @@ class Player:
 		the given score.
 		"""
 		self.score = score
+		self.wins = 0
+		self.ties = 0
+		self.loses = 0
 
 	def __eq__(self, other):
 		"""
@@ -65,3 +68,10 @@ class Player:
 		get_score(self, new_score) sets the players score to new_score.
 		"""
 		self.score = new_score
+
+	def get_matches(self):
+		"""
+		get_matches(self) returns the total number of matches played by 
+		this player over all time.
+		"""
+		return self.wins + self.ties + self.loses
