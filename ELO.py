@@ -18,7 +18,8 @@ class ELO:
 		"""
 		if player in self.players:
 			raise Exception("There is already a player named %s." % player)
-		self.players[player] = Player(ELO.DEFAULT_SCORE)
+		else:
+			self.players[player] = Player(ELO.DEFAULT_SCORE)
 
 	def remove_player(self, player):
 		"""
@@ -27,7 +28,8 @@ class ELO:
 		"""
 		if not player in self.players:
 			raise Exception("There is no player named %s." % player)
-		del self.players[player]
+		else:
+			del self.players[player]
 
 	def number_of_players(self):
 		"""
