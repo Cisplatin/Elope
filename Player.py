@@ -45,7 +45,7 @@ class Player:
 		"""
 		return self.score >= other.score
 
-        def __iadd__(self, arg):
+    def __iadd__(self, arg):
         """
          __iadd__(self, arg) adds the arg value to the player's score.
         """
@@ -76,3 +76,11 @@ class Player:
 		this player over all time.
 		"""
 		return self.wins + self.ties + self.loses
+
+"""
+	def expected_score_against(self, other):
+		""
+		expected_score_against(self) returns the expected score against
+		the other player.
+		""
+"""	
