@@ -1,6 +1,18 @@
 class Player:
 
-	MAX_DIFFERENCE = 400 # Maximum score difference for effect change
+    MAX_DIFFERENCE = 400 # Maximum score difference for effect change
+	
+    THRESHHOLD_MATCHES = 30 # Minimum number of matches a player has to play
+	                        # for their k factor to be assigned other than 40
+    THRESHHOLD_SCORE = 2400 # Minimum score for players to have a kfactor change 								
+    K_TIER1 = 40 # the kfactor for a player with less than threshhold_matches
+
+    K_TIER2 = 20 # the kfactor for a player who's score has never been above
+
+    K_TIER3 = 10 # the kfactor for a player who's score has been above
+
+
+	
 
 	def __init__(self, score):
 		"""
@@ -11,6 +23,7 @@ class Player:
 		self.wins = 0
 		self.ties = 0
 		self.loses = 0
+		self.been_above_threshhold_score = False
 
 	def __eq__(self, other):
 		"""
@@ -51,6 +64,9 @@ class Player:
 		"""
 		___iadd__(self, arg) adds the arg value to the player's score.
 		"""
+		if (self.score + arg >= THRESHHOLD_SCORE):
+			self.been_above_threshhold_score = True
+
 		return self.score + arg
 
 	def __isub__(self, arg):
@@ -70,6 +86,8 @@ class Player:
 		"""
 		get_score(self, new_score) sets the players score to new_score.
 		"""
+		if (new_score >= THRESHHOLD_SCORE):
+		    self.been_above_threshhold_score = True
 		self.score = new_score
 
 	def get_matches(self):
@@ -86,3 +104,21 @@ class Player:
 		"""
 		ratio = (other.get_score() - self.score) / float(Player.MAX_DIFFERENCE)
 		return 1 / (1 + 10 ** ratio)
+
+    def k_factor(self):
+	    """
+        k_factor returns the development coefficient for a specific player
+		based on the following rules
+		k is 40 for a player who has played less than THRESHHOLD_GAMES
+		k is 20 for a player who's rating is under THRESHHOLD_SCORE
+		k is 10 for a player whos rating has ever been above THRESHHOLD_SCORE
+		"""
+        if (self.get_matches < THRESHHOLD_GAMES): 
+		    return K_TIER1
+		elif (self.been_above_threshhold_score):
+			return K_TIER3
+		elif return K_TIER2 	
+
+a = Player(1200)
+print a.k_factor
+
