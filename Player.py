@@ -1,5 +1,7 @@
 class Player:
 
+	MAX_DIFFERENCE = 400 # Maximum score difference for effect change
+
 	def __init__(self, score):
 		"""
 		__ init__(self, score) creates and returns new player with 
@@ -45,11 +47,11 @@ class Player:
 		"""
 		return self.score >= other.score
 
-    def __iadd__(self, arg):
-        """
-         __iadd__(self, arg) adds the arg value to the player's score.
-        """
-        return self.score + arg
+	def __iadd__(self, arg):
+		"""
+		___iadd__(self, arg) adds the arg value to the player's score.
+		"""
+		return self.score + arg
 
 	def __isub__(self, arg):
 		"""
@@ -77,10 +79,10 @@ class Player:
 		"""
 		return self.wins + self.ties + self.loses
 
-"""
 	def expected_score_against(self, other):
-		""
+		"""
 		expected_score_against(self) returns the expected score against
 		the other player.
-		""
-"""	
+		"""
+		ratio = (other.get_score() - self.score) / float(Player.MAX_DIFFERENCE)
+		return 1 / (1 + 10 ** ratio)
