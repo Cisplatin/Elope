@@ -59,7 +59,7 @@ class Player:
         """
         ___iadd__(self, arg) adds the arg value to the player's score.
         """
-        if (self.score + arg >= THRESHHOLD_SCORE):
+        if (self.score + arg >= Player.THRESHHOLD_SCORE):
             self.been_above_threshhold_score = True
 
         return self.score + arg
@@ -81,7 +81,7 @@ class Player:
         """
         get_score(self, new_score) sets the players score to new_score.
         """
-        if (new_score >= THRESHHOLD_SCORE):
+        if (new_score >= Player.THRESHHOLD_SCORE):
             self.been_above_threshhold_score = True
         self.score = new_score
 
@@ -104,16 +104,17 @@ class Player:
         """
         k_factor returns the development coefficient for a specific player
         based on the following rules
-        k is 40 for a player who has played less than THRESHHOLD_GAMES
+        k is 40 for a player who has played less than THRESHHOLD_MATCHES
         k is 20 for a player who's rating is under THRESHHOLD_SCORE
         k is 10 for a player whos rating has ever been above THRESHHOLD_SCORE
         """
-        if (self.get_matches < THRESHHOLD_GAMES): 
-            return K_TIER1
+        if (self.get_matches() < Player.THRESHHOLD_MATCHES): 
+            return Player.K_TIER1
         elif (self.been_above_threshhold_score):
-            return K_TIER3
-        elif return K_TIER2        
+            return Player.K_TIER3
+        else:
+		    return Player.K_TIER2        
 
-a = Player(1200)
-print a.k_factor
+
+
 
