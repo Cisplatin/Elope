@@ -28,7 +28,8 @@ class ELO:
 		list of players in the scheme.
 		"""
 		if not player in self.players:
-			raise Exception("There is no player named %s." % player)
+			raise Exception("There is no player named %s."
+					% player)
 		else:
 			del self.players[player]
 
