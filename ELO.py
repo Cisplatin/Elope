@@ -17,7 +17,8 @@ class ELO:
 		in the scheme. They start with the average score of 1000.
 		"""
 		if player in self.players:
-			raise Exception("There is already a player named %s." % player)
+			raise Exception("There is already a player named %s." 
+					% player)
 		else:
 			self.players[player] = Player(ELO.DEFAULT_SCORE)
 
@@ -33,18 +34,21 @@ class ELO:
 
 	def number_of_players(self):
 		"""
-		number_of_players(self) returns the number of players in this scheme.
+		number_of_players(self) returns the number of players in this
+		scheme.
 		"""
 		return len(self.players)
 
 	def average_score(self):
 		"""
-		average_score(self) returns the average score of all players in the given
-		ELO scheme.
+		average_score(self) returns the average score of all players in
+		the given ELO scheme.
 		"""
 		player_count = self.number_of_players()
 		if player_count == 0:
-			raise Exception("Cannot find the average score of 0 players.")
+			raise Exception("Cannot find the average score of "
+					"0 players.")
 		else:
-			return sum([self.players[player].get_score() 
-			           for player in self.players]) / self.number_of_players()
+			total = sum([self.players[player].get_score()
+				     for player in self.players])
+			return total / self.number_of_players()
