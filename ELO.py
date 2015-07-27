@@ -54,3 +54,4 @@ class ELO:
             total = sum([self.players[player].get_score()
                      for player in self.players])
             return total / self.number_of_players()
+

@@ -5,9 +5,14 @@ class Player:
     THRESHHOLD_MATCHES = 30 # Minimum number of matches a player has to play
                             # for their k factor to be assigned other than 40
     THRESHHOLD_SCORE = 2400 # Minimum score for players to have a kfactor change                                
+
     K_TIER1 = 40 # the kfactor for a player with less than threshhold_matches
     K_TIER2 = 20 # the kfactor for a player who's score has never been above
     K_TIER3 = 10 # the kfactor for a player who's score has been above
+    
+    WIN = 1   # Points earned for a victory
+    TIE = 0.5 # Points earned for a tie
+    LOSE = 0  # Points earned for a lose
 
     def __init__(self, score):
         """
@@ -115,6 +120,14 @@ class Player:
         else:
 		    return Player.K_TIER2        
 
-
-
-
+    def beats(self, other)
+        """
+        beats(self, other) updates the ELO score of the two players where
+        self player beats the other player.
+        """
+        new_rating = self.score + self.k_factor() * 
+                     (Player.WIN - self.expected_score_against(other))
+        self.score = new_rating
+        new_rating = other.score + other.k_factor() *
+                     (Player.LOSE - other.expected_score_against(self))
+        other.score = new_rating
