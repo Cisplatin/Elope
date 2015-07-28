@@ -120,14 +120,14 @@ class Player:
         else:
 		    return Player.K_TIER2        
 
-    def beats(self, other)
+    def beats(self, other):
         """
         beats(self, other) updates the ELO score of the two players where
         self player beats the other player.
         """
-        new_rating = self.score + self.k_factor() * 
-                     (Player.WIN - self.expected_score_against(other))
-        self.score = new_rating
-        new_rating = other.score + other.k_factor() *
-                     (Player.LOSE - other.expected_score_against(self))
-        other.score = new_rating
+        new_rating = (self.score + self.k_factor() * 
+                     (Player.WIN - self.expected_score_against(other)))
+        self.score = int(new_rating)
+        new_rating = (other.score + other.k_factor() *
+                     (Player.LOSE - other.expected_score_against(self)))
+        other.score = int(new_rating)
