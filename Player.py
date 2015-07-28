@@ -113,9 +113,9 @@ class Player:
         k is 20 for a player who's rating is under THRESHHOLD_SCORE
         k is 10 for a player whos rating has ever been above THRESHHOLD_SCORE
         """
-        if (self.get_matches() < Player.THRESHHOLD_MATCHES): 
+        if self.get_matches() < Player.THRESHHOLD_MATCHES: 
             return Player.K_TIER1
-        elif (self.been_above_threshhold_score):
+        elif self.been_above_threshhold_score:
             return Player.K_TIER3
         else:
             return Player.K_TIER2        
