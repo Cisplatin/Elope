@@ -118,7 +118,7 @@ class Player:
         elif (self.been_above_threshhold_score):
             return Player.K_TIER3
         else:
-		    return Player.K_TIER2        
+            return Player.K_TIER2        
 
     def beats(self, other):
         """

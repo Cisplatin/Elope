@@ -55,3 +55,13 @@ class ELO:
                      for player in self.players])
             return total / self.number_of_players()
 
+    def game(self, player1, player2):
+        """
+        player1 beats player2, this function should adjust their ELO scores
+        """
+        if not player1 in self.players or not player2 in self.players:
+            raise Exception("Cannot find one or either players")
+        else:
+            self.players[player1].beats(self.players[player2])
+            return
+	    
