@@ -34,6 +34,16 @@ class ELO:
         else:
             del self.players[player]
 
+    def get_player(self, player):
+        """
+        get_player(self, player) returns the player with the given name
+        """
+        if not player in self.players:
+            raise Exception("There is no player names %s."
+                    % player)
+        else:
+            return self.players[player]
+
     def number_of_players(self):
         """
         number_of_players(self) returns the number of players in this
