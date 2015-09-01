@@ -129,12 +129,10 @@ class Player:
                      (Player.WIN - self.expected_score_against(other)))
         self.score = int(new_rating)
         self.wins += 1
-        self.matches += 1
         new_rating = (other.score + other.k_factor() *
                      (Player.LOSE - other.expected_score_against(self)))
         other.score = int(new_rating)
         other.loses += 1
-        other.matches += 1
 
     def ties(self, other):
         """
@@ -142,12 +140,10 @@ class Player:
         have a tie game
         """
         new_rating = (self.score + self.k_factor() *
-                      Player.TIE - self.expected_score_against(other)))
+                     (Player.TIE - self.expected_score_against(other)))
         self.score = int(new_rating)
         self.ties += 1
-        self.matches += 1
         new_rating = (other.score + other.k_factor() *
                      (Player.TIE - other.expected_score_against(self)))
         other.score = int(new_rating)
         other.ties += 1
-        other.matches += 1
