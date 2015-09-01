@@ -44,6 +44,12 @@ class ELO:
         else:
             return self.players[player]
 
+    def get_all_players(self):
+        """
+        get_all_players(self, player) returns a list of all players
+        """
+        return self.players
+
     def number_of_players(self):
         """
         number_of_players(self) returns the number of players in this
