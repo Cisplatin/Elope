@@ -128,6 +128,10 @@ class Player:
         new_rating = (self.score + self.k_factor() * 
                      (Player.WIN - self.expected_score_against(other)))
         self.score = int(new_rating)
+        self.wins += 1
+        self.matches += 1
         new_rating = (other.score + other.k_factor() *
                      (Player.LOSE - other.expected_score_against(self)))
         other.score = int(new_rating)
+        other.loses += 1
+        other.matches += 1
