@@ -80,4 +80,13 @@ class ELO:
         else:
             self.players[player1].beats(self.players[player2])
             return
-	    
+	   
+    def tie(self, player1, player2):
+        """
+        player1 and player2 play a game and tie   
+        """ 
+        if not player1 in self.players or not player2 in self.players:
+            raise Exception("Cannot find one or either players")
+        else:
+            self.players[player1].ties(self.players[player2])
+            return
