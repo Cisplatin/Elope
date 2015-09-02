@@ -34,13 +34,23 @@ class ELO:
         else:
             del self.players[player]
 
+    def set_player(self, player, score):
+        """
+        set_player(self, player, score) sets the given player's score to
+        the given parameter
+        """
+        if not player in self.players:
+            raise Exception("There is no player named %s." % player)
+        else:
+            self.players[player].score = score
+            return
+
     def get_player(self, player):
         """
         get_player(self, player) returns the player with the given name
         """
         if not player in self.players:
-            raise Exception("There is no player names %s."
-                    % player)
+            raise Exception("There is no player named %s." % player)
         else:
             return self.players[player]
 
