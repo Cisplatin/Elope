@@ -1,14 +1,14 @@
 from Player import Player
 
 class ELO:
-    
+
     DEFAULT_SCORE = 1000 # The default score for new players
 
     def __init__(self):
         """
         __init__(self) initializes an empty ELO container used to hold
         all players involved in this specific scheme.
-        """        
+        """
         self.players = {}
         self.game_count = 0
 
@@ -18,8 +18,8 @@ class ELO:
         in the scheme. They start with the average score of 1000.
         """
         if player in self.players:
-            raise Exception("There is already a player named %s." 
-                    % player)
+            raise Exception("There is already a player named %s."
+                            % player)
         else:
             self.players[player] = Player(ELO.DEFAULT_SCORE)
 
@@ -30,7 +30,7 @@ class ELO:
         """
         if not player in self.players:
             raise Exception("There is no player named %s."
-                    % player)
+                            % player)
         else:
             del self.players[player]
 
@@ -90,11 +90,11 @@ class ELO:
         else:
             self.players[player1].beats(self.players[player2])
             return
-	   
+
     def tie(self, player1, player2):
         """
-        player1 and player2 play a game and tie   
-        """ 
+        player1 and player2 play a game and tie
+        """
         if not player1 in self.players or not player2 in self.players:
             raise Exception("Cannot find one or either players")
         else:
